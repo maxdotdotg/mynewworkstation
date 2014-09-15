@@ -18,8 +18,11 @@ git clone git://github.com/luchasei/zsh-config.git ~/.zsh
 cd ~/.zsh
 make install
 
+#Change shell to zsh
+sudo chsh -s /usr/bin/zsh
+
 echo
-echo "REMEMBER TO ADD CUSTOM COMMAND IN TERMINAL PROFILE TO USE ZSH!!"
+echo "REMEMBER TO CONFIRM ZSH IS WORKING! IF NOT, ADD CUSTOM COMMAND IN TERMINAL PROFILE TO USE ZSH!!"
 echo
 
 
