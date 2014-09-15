@@ -5,7 +5,7 @@
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 #Install software that I use on most machines
-sudo apt-get install -y vlc git clamscan zsh skype python ruby pip openssl curl chromium-browser p7zip ubuntu-tweak
+sudo apt-get install -y vlc git clamscan zsh skype python ruby python-pip openssl curl chromium-browser p7zip ubuntu-tweak
 
 #Remove software that I don't use
 sudo apt-get remove -y aisleriot ubuntuone gnome-sudoku gnomine gnome-mahjongg
