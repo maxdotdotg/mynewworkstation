@@ -1,5 +1,5 @@
 #!/bin/bash
-#Script to set up preferred tools on a new workstation
+#Script to set up preferred tools on a new Ubuntu workstation
 
 #Initial updates and upgrades
 sudo apt-get update -y && sudo apt-get upgrade -y
