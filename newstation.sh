@@ -18,7 +18,7 @@ git clone git://github.com/luchasei/zsh-config.git ~/.zsh
 cd ~/.zsh
 make install
 
-#Change shell to zsh
+#Change default shell bash to zsh
 sudo chsh -s /usr/bin/zsh
 
 echo
