@@ -33,7 +33,7 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 
 echo
 echo
-echo "Cloning Eddy's zsh setup and setting it up."
+echo "Cloning Eddy's zsh config and setting it up."
 echo
 echo
 #Clone zsh config and setup
