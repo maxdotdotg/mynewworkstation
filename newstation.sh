@@ -58,7 +58,7 @@ echo
 #Change environmental variable EDITOR from vi to nano
 cd ~/
 export EDITOR=nano
-source ~/.zshrch
+source ~/.zshrc
 
 
 echo
