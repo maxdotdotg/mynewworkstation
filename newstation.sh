@@ -43,12 +43,12 @@ make install
 
 echo
 echo
-echo "Now changing the default shell to zsh"
+echo "Now changing the default shell to zsh and starting zsh"
 echo
 echo
 #Change default shell bash to zsh
 sudo chsh -s /usr/bin/zsh
-
+zsh
 
 echo
 echo
@@ -63,8 +63,6 @@ source ~/.zshrc
 
 echo
 echo
-echo "REMEMBER TO CONFIRM ZSH IS WORKING!"
-echo " IF IT'S NOT, ADD CUSTOM COMMAND IN TERMINAL PROFILE TO USE ZSH!!"
+echo "REMEMBER TO CONFIRM ZSH IS WORKING BY OPENING A NEW TERMINAL!"
+echo "IF IT'S NOT, ADD CUSTOM COMMAND IN TERMINAL PROFILE TO USE ZSH!!"
 echo
-
-
