@@ -1,61 +1,29 @@
 #!/bin/bash
 #Script to set up preferred tools on a new Ubuntu workstation
 
-echo "Running apt-get to update and upgrade the system"
-echo
-#Initial updates and upgrades
+# update and upgrade the system with apt-get
 sudo apt-get update -y && sudo apt-get upgrade -y
 
-echo
-echo
-echo "Now installing additional programs"
-echo
-echo
-#Install software that I use on most machines
-sudo apt-get install -y vlc git clamscan zsh skype python ruby python-pip openssl curl chromium-browser p7zip ubuntu-tweak
-
-echo
-echo
-echo "Now removing programs that will not be used (games and ubuntu one)"
-echo
-echo
+# Install software that I tend to use on most machines
+sudo apt-get install -y vlc git zsh skype python ruby python-pip openssl curl chromium-browser p7zip
 
 #Remove software that I don't use
-sudo apt-get remove -y aisleriot ubuntuone gnome-sudoku gnomine gnome-mahjongg
+sudo apt-get remove -y aisleriot gnome-sudoku gnomine gnome-mahjongg
 
-echo
-echo
-echo "Running final updates and upgrades, just in case"
-echo
-echo
 #Final updates and upgrades, just in case
 sudo apt-get update -y && sudo apt-get upgrade -y
 
-echo
-echo
-echo "Cloning Eddy's zsh config and setting it up."
-echo
-echo
-#Clone zsh config and setup
+#Clone Eddy's zsh config and setup
 git clone git://github.com/luchasei/zsh-config.git ~/.zsh
 cd ~/.zsh
 make install
 
-echo
-echo
-echo "Now changing the default shell to zsh and starting zsh"
-echo
-echo
-#Change default shell bash to zsh
+#Change default shell from bash to zsh
 sudo chsh -s /usr/bin/zsh
 zsh
 
-echo
-echo
-echo "And now updating the EDITOR variable to nano, because I don't know vi"
-echo
-echo
 #Change environmental variable EDITOR from vi to nano
+# because I like nano
 cd ~/
 export EDITOR=nano
 source ~/.zshrc
