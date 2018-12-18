@@ -10,3 +10,10 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+
+execute pathogen#infect()
+
+" set TERM in vim, allowing ctrl+arrow to move cursor instead of delete
+set term=xterm-256color
+
