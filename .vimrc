@@ -1,5 +1,5 @@
 " set color scheme
-colorscheme ron
+colorscheme elflord
 " enable syntax highlighting
 syntax on
 
@@ -12,8 +12,8 @@ set shiftwidth=4
 set expandtab
 
 
-execute pathogen#infect()
-
 " set TERM in vim, allowing ctrl+arrow to move cursor instead of delete
-set term=xterm-256color
+"set term=xterm-256color
 
+" set line numbers
+set number
