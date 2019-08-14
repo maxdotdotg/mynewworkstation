@@ -8,12 +8,7 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y git zsh python-pip tmux vim
 
 # install oh-my-zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git
-cd ~/.zsh
-make install
-
-#Change default shell from bash to zsh
-sudo chsh -s /usr/bin/zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # set default editor to vim
 echo "export EDITOR=vim" >> ~/.zshrc
@@ -23,4 +18,3 @@ echo "export PATH=$PATH:~/scripts" >> ~/.zshrc
 
 # add go to path
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.zshrc
-
