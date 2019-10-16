@@ -5,7 +5,7 @@
 sudo apt-get update -y && sudo apt-get upgrade -y
 
 # Install software that I tend to use on most machines
-sudo apt-get install -y git zsh python-pip python-virtualenv tmux vim
+sudo apt-get install -y git zsh python-pip python-virtualenv tmux vim curl jq
 
 # install oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
