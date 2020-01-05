@@ -17,3 +17,8 @@ set expandtab
 
 " set line numbers
 set number
+" automatically wrap text at 80 characters
+set textwidth=80
+
+" scroll with the mouse in vim
+set mouse=a
