@@ -16,6 +16,9 @@ wget https://raw.githubusercontent.com/maxdotdotg/mynewworkstation/master/.tmux.
 # install oh-my-zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+# add plugins
+sed -i "s/^plugins.*/plugins=(git aws terraform)/g" .zshrc
+
 # set default editor to nvim
 echo "export EDITOR=nvim" >> ~/.zshrc
 
@@ -26,4 +29,15 @@ echo "export PATH=$PATH:/home/max/.local/bin" >> ~/.zshrc
 git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 echo "export PATH=$PATH:~/.tfenv/bin" >> ~/.zshrc
 
+# install docker
+# insert obligatory complaining about sourcing scripts from teh interwebz
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 
+# install rust
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+# install golang
+wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.zshrc
