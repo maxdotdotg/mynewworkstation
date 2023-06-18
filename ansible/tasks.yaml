@@ -1,0 +1,46 @@
+---
+
+- hosts: localhost
+  tasks:
+
+    - name: install OS packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - jq
+        - tmux
+        - neovim
+        - git
+        - zsh
+        - kubectl
+
+    - name: get vimrc
+      get_url:
+        url: "https://raw.githubusercontent.com/maxdotdotg/mynewworkstation/master/.vimrc"
+        dest: "~/.vimrc"
+
+    - name: ensure .config/nvim dir exists
+      file:
+        path: "~/.config/nvim"
+        state: directory
+
+    - name: symlink vimrc for nvim
+      file:
+        src: "~/.vimrc"
+        dest: "~/.config/nvim/init.vim"
+        state: link
+
+    - name: get tmux conf
+      get_url:
+        url: "https://raw.githubusercontent.com/maxdotdotg/mynewworkstation/master/.tmux.conf"
+
+    - name: install oh-my-zsh
+      shell:
+        command: >
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+    - name: render zshrc
+      template:
+        source: templates/zshrc.j2
+        dest: "~/.zshrc"
