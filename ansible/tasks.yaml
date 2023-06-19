@@ -13,7 +13,18 @@
         - neovim
         - git
         - zsh
-        - kubectl
+
+    - name: install kubectl
+      block:
+        - name: install kubectl for x86_64
+          shell: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          when: ansible_architecture == "x86_64"
+        - name: install kubectl for arm64
+          shell: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+          when: ansible_architecture == "aarch64"
+        - name: install kubectl
+          become: yes
+          shell: install kubectl /usr/local/bin/kubectl
 
     - name: get vimrc
       get_url:
@@ -34,13 +45,12 @@
     - name: get tmux conf
       get_url:
         url: "https://raw.githubusercontent.com/maxdotdotg/mynewworkstation/master/.tmux.conf"
+        dest: "~/.tmux.conf"
 
     - name: install oh-my-zsh
-      shell:
-        command: >
-          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
     - name: render zshrc
       template:
-        source: templates/zshrc.j2
+        src: templates/zshrc.j2
         dest: "~/.zshrc"
