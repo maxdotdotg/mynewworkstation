@@ -4,6 +4,7 @@
   tasks:
 
     - name: install OS packages
+      become: true
       package:
         name: "{{ item }}"
         state: present
